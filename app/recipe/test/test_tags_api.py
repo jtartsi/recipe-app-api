@@ -17,7 +17,7 @@ def create_user(**params):
 
 
 class PublicTagsApiTests(TestCase):
-    """Test the publicly available API"""
+    """Test the publicly available Tags API"""
 
     def setUp(self):
         self.client = APIClient()
