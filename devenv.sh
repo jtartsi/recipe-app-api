@@ -17,3 +17,8 @@ fun_create_core_app() {
 fun_make_core_migrations() {
   docker-compose run app sh -c "python manage.py makemigrations core"
 }
+
+fun_makemigrations() {
+  docker-compose run --rm app sh -c "python manage.py makemigrations"
+}
+
