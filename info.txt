@@ -1,12 +1,17 @@
 # Create new app module:
-# docker-compose run --rm app sh -c "python manage.py startapp recipe" // Will create recipe module
-
+#   docker-compose run --rm app sh -c "python manage.py startapp recipe" // Will create recipe module
 # Remove following files inside new module
 #   - admin.py
 #   - models.py
 #   - /migrations/*
 #   - tests.py
-
 # Create Tests
 #   - Create folder /tests/ inside recipe module
 #   - Create init file /tests/__init__.py inside recipe/tests module
+===
+# Create new model:
+# Write tests for the model
+# Write the model to /core/models/mymodel
+# Run migrations
+#   docker-compose run --rm app sh -c "python manage.py makemigrations core"
+# Add it to admin.py admin.site.register(models.Ingeredients)
