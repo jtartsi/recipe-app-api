@@ -33,18 +33,17 @@ class PrivateIngredientsApiTests(TestCase):
     """Test ingredients can be retrieved by authorized user"""
 
     def setUp(self):
+        self.client = APIClient()
         self.user = create_user(
             email='test@jmitesolutions.com',
-            password='testpass',
-            name='John Doe',
+            password='testpass'
         )
-        self.client = APIClient()
-        self.client.force_authenticate(user=self.user)
+        self.client.force_authenticate(self.user)
 
     def test_retrieve_ingredient_list(self):
         """Test retrieving a list of ingredients"""
-        Ingredient.objects.create(user=self, name='Kale')
-        Ingredient.objects.create(user=self, name='Salt')
+        Ingredient.objects.create(user=self.user, name='Kale')
+        Ingredient.objects.create(user=self.user, name='Salt')
 
         res = self.client.get(INGREDIENTS_URL)
 
